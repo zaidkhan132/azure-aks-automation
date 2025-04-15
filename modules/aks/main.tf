@@ -1,6 +1,6 @@
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.cluster_name
-  location            = "East US"
+  location            = var.location
   resource_group_name = var.resource_group_name
   dns_prefix          = "${var.cluster_name}-dns"
 
@@ -15,23 +15,20 @@ resource "azurerm_kubernetes_cluster" "aks" {
   }
 
   tags = {
-    Environment = "Development"
-    Owner       = "Team-Ilens"
+    Environment = var.environment
+    Owner       = var.owner
   }
 }
 
-resource "azurerm_kubernetes_cluster_node_pool" "custom_pool" {
+resource "azurerm_kubernetes_cluster_node_pool" "node_pool" {
   name                  = var.node_group
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  vm_size               = "Standard_B2s"
   node_count            = var.node_count
+  vm_size               = "Standard_B2s"
   mode                  = "User"
-  node_labels           = { "purpose" = "custom" }
+  node_labels           = { "purpose" = var.node_group_label }
   tags = {
-    Environment = "Development"
-    Owner       = "Team-Ilens"
+    Environment = var.environment
+    Owner       = var.owner
   }
 }
-
-
- 
