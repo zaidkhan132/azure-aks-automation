@@ -1,6 +1,4 @@
-cluster_name       = "ilens-aks-dev"
-resource_group_name = "Demo-Resource"
-node_group         = "ilens-infra"
-node_count         = 2
-}
+location = "East US"
+node_group_label = "custom-group"
+
 
