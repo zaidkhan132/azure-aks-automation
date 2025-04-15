@@ -1,9 +1,7 @@
-cluster_name       = "${CLUSTER_NAME}"         
-location           = "${LOCATION}"            
+cluster_name       = "${CLUSTER_NAME}"                     
 resource_group_name = "${RESOURCE_GROUP}"     
 node_group         = "${NODE_GROUP}"         
-node_count         = ${NODE_COUNT}            
-vm_size            = "${VM_SIZE}"             
+node_count         = ${NODE_COUNT}                         
 tags = {                                     
   Environment = "Development"
   Owner       = "Team-Ilens"
