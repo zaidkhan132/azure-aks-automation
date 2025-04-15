@@ -3,41 +3,32 @@ variable "cluster_name" {
 }
 
 variable "location" {
-  description = "The Azure region where the cluster is deployed"
+  description = "The Azure region where the cluster will be created"
 }
 
 variable "resource_group_name" {
   description = "The name of the resource group for the AKS cluster"
 }
 
-variable "default_nodepool_name" {
-  description = "Name of the default node pool"
-  default     = "default"
-}
-
-variable "default_nodepool_count" {
-  description = "Number of nodes in the default node pool"
-  default     = 2
-}
-
 variable "node_group" {
-  description = "Name of the node group"
+  description = "The name of the node group"
 }
 
 variable "node_count" {
-  description = "Number of nodes in the specified node group"
-  default     = 2
-}
-
-variable "node_group_label" {
-  description = "Label for the node group"
-  default     = "custom-group"
+  description = "The number of nodes in the specified node group"
+  type        = number
 }
 
 variable "vm_size" {
-  description = "Size of the VM used in the node pool"
-  default     = "Standard_DS2_v2"
+  description = "The VM size for the node pool"
+  default     = "Standard_B2s"
 }
+
+variable "tags" {
+  description = "Tags to label the Azure resources"
+  type        = map(string)
+}
+
 
 variable "tags" {
   description = "Tags to label Azure resources"
