@@ -17,13 +17,13 @@ resource "azurerm_kubernetes_cluster" "aks" {
   tags = var.tags
 }
  
-resource "azurerm_kubernetes_cluster_node_pool" "infra_pool" {
-  name                  = "ilensinfra"
+resource "azurerm_kubernetes_cluster_node_pool" "node_pool" {
+  name                  = var.node_group
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
   vm_size               = var.vm_size
-  node_count            = var.infra_nodepool_count
+  node_count            = var.node_count
   mode                  = "User"
-  node_labels           = { "purpose" = "infra" }
+  node_labels           = { "purpose" = var.node_group_label }
   tags                  = var.tags
 }
  
