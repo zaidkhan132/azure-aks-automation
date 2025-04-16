@@ -1,4 +1,8 @@
 location = "East US"
-node_group_label = "custom-group"
+tags = {
+  Environment = "Development"
+  Owner       = "Team-Ilens"
+}
+
 
 
