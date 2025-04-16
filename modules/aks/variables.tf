@@ -1,3 +1,8 @@
+variable "node_group" {
+  description = "Name of the node group in the AKS cluster"
+  type        = string
+}
+
 variable "cluster_name" {
   description = "Name of the AKS cluster"
   type        = string
