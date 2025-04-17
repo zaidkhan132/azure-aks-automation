@@ -10,6 +10,5 @@ output "aks_name" {
 }
 
 output "node_pools" {
-  description = "Node pools created in the AKS cluster"
-  value       = azurerm_kubernetes_cluster_node_pool.node_pool
+  value = azurerm_kubernetes_cluster_node_pool.infra_pool.name
 }
