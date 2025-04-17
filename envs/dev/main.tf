@@ -1,8 +1,8 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "New-Terraform-Backend-Resource-Group"
-    storage_account_name = "newterraformstate"
-    container_name       = "newtfstate"
+    resource_group_name  = "Demo-Resource"
+    storage_account_name = "zaid01storageaccount"
+    container_name       = "zaidcontainer"
     key                  = "${var.cluster_name}-tfstate"
   }
 }
