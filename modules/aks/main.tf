@@ -1,28 +1,31 @@
+provider "azurerm" {
+  features {}
+}
+
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.cluster_name
-  location            = var.location
   resource_group_name = var.resource_group_name
-  dns_prefix          = "${var.cluster_name}-dns"
+  location            = var.location
+  tags                = var.tags
 
   default_node_pool {
-    name       = "default"
-    node_count = 1
-    vm_size    = "Standard_B2s"
+    name       = var.node_group
+    node_count = var.node_count
+    vm_size    = var.node_pools[var.node_group].vm_size
   }
 
   identity {
     type = "SystemAssigned"
   }
-
-  tags = var.tags
 }
 
-resource "azurerm_kubernetes_cluster_node_pool" "node_pool" {
-  for_each              = var.node_pools
-  name                  = var.node_group
+resource "azurerm_kubernetes_cluster_node_pool" "additional" {
+  for_each = var.node_pools
+
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  vm_size               = each.value.vm_size
+  name                  = each.key
   node_count            = each.value.node_count
+  vm_size               = each.value.vm_size
   mode                  = each.value.mode
   tags                  = each.value.tags
 }
