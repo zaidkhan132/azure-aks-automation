@@ -17,7 +17,6 @@ module "aks" {
   node_group          = var.node_group
   node_count          = var.node_count
   node_pools          = var.node_pools
-  infra_pool_count    = var.infra_pool_count
-  core_pool_count     = var.core_pool_count
 }
+
 
