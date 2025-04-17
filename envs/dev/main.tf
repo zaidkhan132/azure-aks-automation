@@ -13,7 +13,6 @@ module "aks" {
   resource_group_name = var.resource_group_name
   location            = var.location
   tags                = var.tags
-dns_prefix          = var.dns_prefix
   node_group          = var.node_group
   node_count          = var.node_count
   node_pools          = var.node_pools
