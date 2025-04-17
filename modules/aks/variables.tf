@@ -1,7 +1,3 @@
-variable "dns_prefix" {
-  description = "DNS prefix for the AKS cluster"
-  type        = string
-}
 
 variable "cluster_name" {
   description = "The name of the AKS cluster"
