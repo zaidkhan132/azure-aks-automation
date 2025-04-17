@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.cluster_name
   resource_group_name = var.resource_group_name
@@ -9,8 +5,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
   tags                = var.tags
 
   default_node_pool {
-    name       = "default"
-    node_count = 0
+    name       = var.node_group
+    node_count = var.node_count
     vm_size    = "Standard_DS2_v2"
   }
 
