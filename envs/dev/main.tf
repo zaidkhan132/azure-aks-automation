@@ -1,8 +1,8 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "Terraform-Backend-Resource-Group"
-    storage_account_name = "terraformstate"
-    container_name       = "tfstate"
+    resource_group_name  = "Demo-Resource"
+    storage_account_name = "zaid01storageaccount"
+    container_name       = "mycontainer"
     key                  = "ilens-aks-dev-ilensinfra-tfstate"
   }
 }
