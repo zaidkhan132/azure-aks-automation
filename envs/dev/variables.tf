@@ -37,3 +37,13 @@ variable "node_pools" {
     tags       = map(string)
   }))
 }
+
+variable "infra_pool_count" {
+  description = "Number of nodes for the infra pool"
+  type        = number
+}
+
+variable "core_pool_count" {
+  description = "Number of nodes for the core pool"
+  type        = number
+}
