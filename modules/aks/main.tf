@@ -1,9 +1,4 @@
-variable "dns_prefix" {
-  description = "DNS prefix for the AKS cluster"
-  type        = string
-}
 
-  dns_prefix          = var.dns_prefix  
   default_node_pool {
     name       = var.node_group
     node_count = var.node_count
