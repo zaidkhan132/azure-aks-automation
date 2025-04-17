@@ -22,6 +22,10 @@ variable "tags" {
   description = "Tags for the Azure resources"
   type        = map(string)
 }
+variable "node_count" {
+  description = "Number of nodes in the node group"
+  type        = number
+}
 
 variable "node_pools" {
   description = "Map of node pools and their configurations"
