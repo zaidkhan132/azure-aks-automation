@@ -3,8 +3,7 @@ variable "dns_prefix" {
   type        = string
 }
 
-  dns_prefix          = var.dns_prefix  # Add this line
-
+  dns_prefix          = var.dns_prefix  
   default_node_pool {
     name       = var.node_group
     node_count = var.node_count
@@ -20,6 +19,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.cluster_name
   resource_group_name = var.resource_group_name
   location            = var.location
+dns_prefix          = var.dns_prefix
   tags                = var.tags
 
   default_node_pool {
