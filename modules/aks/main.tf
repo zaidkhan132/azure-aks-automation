@@ -1,3 +1,27 @@
+variable "dns_prefix" {
+  description = "DNS prefix for the AKS cluster"
+  type        = string
+}
+
+resource "azurerm_kubernetes_cluster" "aks" {
+  name                = var.cluster_name
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  tags                = var.tags
+
+  dns_prefix          = var.dns_prefix  # Add this line
+
+  default_node_pool {
+    name       = var.node_group
+    node_count = var.node_count
+    vm_size    = "Standard_DS2_v2"
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
+
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.cluster_name
   resource_group_name = var.resource_group_name
