@@ -10,7 +10,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
     name       = var.node_group
     node_count = var.node_count
     vm_size    = "Standard_DS2_v2"
-    mode       = "System"                    # Required for default node pools
   }
 
   identity {
