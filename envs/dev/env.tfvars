@@ -18,3 +18,6 @@ node_pools = {
     }
   }
 }
+
+infra_pool_count     = 2
+core_pool_count      = 1
