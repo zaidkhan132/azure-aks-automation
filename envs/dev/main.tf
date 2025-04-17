@@ -1,11 +1,11 @@
 module "aks" {
-  source = "../../modules/aks"
-
-  cluster_name         = var.cluster_name
-  resource_group_name  = var.resource_group_name
-  location             = var.location
-  tags                 = var.tags
-  node_group           = var.node_group
-  node_count           = var.node_count
-  node_pools           = var.node_pools
+  source              = "../../modules/aks"
+  cluster_name        = var.cluster_name
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  node_group          = var.node_group
+  node_count          = var.node_count
+  tags                = var.tags
+  node_pools          = var.node_pools
 }
+
