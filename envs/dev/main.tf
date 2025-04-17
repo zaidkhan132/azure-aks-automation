@@ -1,11 +1,12 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "Demo-Resource"
-    storage_account_name = "zaid01storageaccount"
-    container_name       = "mycontainer"
+    resource_group_name  = "New-Terraform-Backend-Resource-Group"
+    storage_account_name = "newterraformstate"
+    container_name       = "newtfstate"
     key                  = "${var.cluster_name}-tfstate"
   }
 }
+
 
 module "aks" {
   source              = "../../modules/aks"
