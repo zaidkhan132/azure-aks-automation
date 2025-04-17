@@ -12,6 +12,7 @@ module "aks" {
   cluster_name        = var.cluster_name
   resource_group_name = var.resource_group_name
   location            = var.location
+  dns_prefix          = var.dns_prefix
   tags                = var.tags
   node_group          = var.node_group
   node_count          = var.node_count
