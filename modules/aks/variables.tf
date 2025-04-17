@@ -19,12 +19,12 @@ variable "tags" {
 }
 
 variable "node_group" {
-  description = "The name of the node group"
+  description = "The name of the default node group"
   type        = string
 }
 
 variable "node_count" {
-  description = "The number of nodes in the default node group"
+  description = "Number of nodes in the default node group"
   type        = number
 }
 
@@ -36,4 +36,14 @@ variable "node_pools" {
     mode       = string
     tags       = map(string)
   }))
+}
+
+variable "infra_pool_count" {
+  description = "Number of nodes for the infra pool"
+  type        = number
+}
+
+variable "core_pool_count" {
+  description = "Number of nodes for the core pool"
+  type        = number
 }
