@@ -9,32 +9,21 @@ variable "resource_group_name" {
 }
 
 variable "location" {
-  description = "Azure region for the deployment"
+  description = "Azure region"
   type        = string
-}
-
-variable "node_group" {
-  description = "Name of the node group"
-  type        = string
-}
-
-variable "node_count" {
-  description = "Number of nodes in the node group"
-  type        = number
 }
 
 variable "tags" {
-  description = "Tags for the Azure resources"
+  description = "Tags for Azure resources"
   type        = map(string)
 }
 
-variable "node_pools" {
-  description = "Node pool configuration"
-  type = map(object({
-    vm_size    = string
-    node_count = number
-    mode       = string
-    tags       = map(string)
-  }))
+variable "infra_pool_count" {
+  description = "Number of nodes for the infra_pool"
+  type        = number
 }
 
+variable "core_pool_count" {
+  description = "Number of nodes for the core_pool"
+  type        = number
+}
