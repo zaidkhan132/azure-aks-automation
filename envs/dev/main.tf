@@ -7,7 +7,6 @@ terraform {
   }
 }
 
-
 module "aks" {
   source              = "../../modules/aks"
   cluster_name        = var.cluster_name
@@ -20,5 +19,3 @@ module "aks" {
   infra_pool_count    = var.infra_pool_count
   core_pool_count     = var.core_pool_count
 }
-
-
