@@ -4,6 +4,7 @@ location             = "East US"
 tags = {
   Environment = "Dev"
 }
+dns_prefix = "ilens-aks-dev"  # Example DNS prefix
 
 node_group           = "ilensinfra"
 node_count           = 2
