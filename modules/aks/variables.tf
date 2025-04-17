@@ -1,28 +1,29 @@
-cluster_name         = "ilens-aks-dev"
-resource_group_name  = "Demo-Resource"
-location             = "East US"
-tags = {
-  Environment = "Dev"
+variable "cluster_name" {
+  description = "Name of the AKS cluster"
+  type        = string
 }
 
-node_group           = "ilensinfra"
-node_count           = 2
+variable "resource_group_name" {
+  description = "Name of the resource group"
+  type        = string
+}
 
-node_pools = {
-  pool1 = {
-    vm_size    = "Standard_DS2_v2"
-    node_count = 2
-    mode       = "User"
-    tags       = {
-      Team = "Development"
-    }
-  }
-  pool2 = {
-    vm_size    = "Standard_DS3_v2"
-    node_count = 3
-    mode       = "System"
-    tags       = {
-      Team = "QA"
-    }
-  }
+variable "location" {
+  description = "Azure region"
+  type        = string
+}
+
+variable "tags" {
+  description = "Tags for resources"
+  type        = map(string)
+}
+
+variable "infra_pool_count" {
+  description = "Number of nodes for the infra_pool"
+  type        = number
+}
+
+variable "core_pool_count" {
+  description = "Number of nodes for the core_pool"
+  type        = number
 }
