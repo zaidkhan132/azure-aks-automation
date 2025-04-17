@@ -1,3 +1,7 @@
+terraform {
+  backend "azurerm" {}
+}
+
 module "aks" {
   source              = "../../modules/aks"
   cluster_name        = var.cluster_name
