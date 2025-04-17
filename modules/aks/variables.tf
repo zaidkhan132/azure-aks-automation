@@ -1,39 +1,28 @@
-variable "cluster_name" {
-  description = "Name of the AKS cluster"
-  type        = string
+cluster_name         = "ilens-aks-dev"
+resource_group_name  = "Demo-Resource"
+location             = "East US"
+tags = {
+  Environment = "Dev"
 }
 
-variable "resource_group_name" {
-  description = "Name of the resource group for the AKS cluster"
-  type        = string
-}
+node_group           = "ilensinfra"
+node_count           = 2
 
-variable "location" {
-  description = "Azure region where the AKS cluster will be deployed"
-  type        = string
-}
-
-variable "tags" {
-  description = "Tags for the Azure resources"
-  type        = map(string)
-}
-
-variable "node_group" {
-  description = "Name of the node group in the AKS cluster"
-  type        = string
-}
-
-variable "node_count" {
-  description = "Number of nodes in the node group"
-  type        = number
-}
-
-variable "node_pools" {
-  description = "Map of node pools and their configurations"
-  type = map(object({
-    vm_size    = string
-    node_count = number
-    mode       = string
-    tags       = map(string)
-  }))
+node_pools = {
+  pool1 = {
+    vm_size    = "Standard_DS2_v2"
+    node_count = 2
+    mode       = "User"
+    tags       = {
+      Team = "Development"
+    }
+  }
+  pool2 = {
+    vm_size    = "Standard_DS3_v2"
+    node_count = 3
+    mode       = "System"
+    tags       = {
+      Team = "QA"
+    }
+  }
 }
