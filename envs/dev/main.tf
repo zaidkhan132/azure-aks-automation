@@ -1,5 +1,10 @@
 terraform {
-  backend "azurerm" {}
+  backend "azurerm" {
+    resource_group_name  = "Terraform-Backend-Resource-Group"
+    storage_account_name = "terraformstate"
+    container_name       = "tfstate"
+    key                  = "ilens-aks-dev-ilensinfra-tfstate"
+  }
 }
 
 module "aks" {
@@ -12,4 +17,3 @@ module "aks" {
   tags                = var.tags
   node_pools          = var.node_pools
 }
-
