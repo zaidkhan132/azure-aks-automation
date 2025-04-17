@@ -19,7 +19,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
 resource "azurerm_kubernetes_cluster_node_pool" "infra_pool" {
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  name                  = "infra_pool"
+  name                  = "infrapool"
   node_count            = var.infra_pool_count
   vm_size               = "Standard_DS2_v2"
   mode                  = "User"             # Node pool type (User/System)
@@ -28,7 +28,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "infra_pool" {
 
 resource "azurerm_kubernetes_cluster_node_pool" "core_pool" {
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  name                  = "core_pool"
+  name                  = "corepool"
   node_count            = var.core_pool_count
   vm_size               = "Standard_DS2_v2"
   mode                  = "User"             # Node pool type (User/System)
