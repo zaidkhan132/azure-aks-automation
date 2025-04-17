@@ -9,9 +9,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
   tags                = var.tags
 
   default_node_pool {
-    name       = var.node_group
-    node_count = var.node_count
-    vm_size    = var.node_pools[var.node_group].vm_size
+    name       = "default"
+    node_count = 0
+    vm_size    = "Standard_DS2_v2"
   }
 
   identity {
@@ -19,13 +19,20 @@ resource "azurerm_kubernetes_cluster" "aks" {
   }
 }
 
-resource "azurerm_kubernetes_cluster_node_pool" "additional" {
-  for_each = var.node_pools
-
+resource "azurerm_kubernetes_cluster_node_pool" "infra_pool" {
   kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  name                  = each.key
-  node_count            = each.value.node_count
-  vm_size               = each.value.vm_size
-  mode                  = each.value.mode
-  tags                  = each.value.tags
+  name                  = "infra_pool"
+  node_count            = var.infra_pool_count
+  vm_size               = "Standard_DS2_v2"
+  mode                  = "User"
+  tags                  = var.tags
+}
+
+resource "azurerm_kubernetes_cluster_node_pool" "core_pool" {
+  kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
+  name                  = "core_pool"
+  node_count            = var.core_pool_count
+  vm_size               = "Standard_DS2_v2"
+  mode                  = "User"
+  tags                  = var.tags
 }
