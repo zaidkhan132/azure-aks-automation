@@ -1,8 +1,3 @@
-variable "node_group" {
-  description = "Name of the node group in the AKS cluster"
-  type        = string
-}
-
 variable "cluster_name" {
   description = "Name of the AKS cluster"
   type        = string
@@ -22,6 +17,12 @@ variable "tags" {
   description = "Tags for the Azure resources"
   type        = map(string)
 }
+
+variable "node_group" {
+  description = "Name of the node group in the AKS cluster"
+  type        = string
+}
+
 variable "node_count" {
   description = "Number of nodes in the node group"
   type        = number
