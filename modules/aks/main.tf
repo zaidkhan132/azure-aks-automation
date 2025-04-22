@@ -8,6 +8,14 @@ resource "azurerm_kubernetes_cluster" "aks" {
   identity {
     type = "SystemAssigned"
   }
+
+
+default_node_pool {
+    name       = "defaultpool"
+    node_count = 1
+    vm_size    = "Standard_DS2_v2"
+    mode       = "System"
+  }
 }
 
 # Infrastructure Node Pool
