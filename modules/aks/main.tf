@@ -9,12 +9,11 @@ resource "azurerm_kubernetes_cluster" "aks" {
     type = "SystemAssigned"
   }
 
-
-default_node_pool {
-    name       = "defaultpool"
-    node_count = 1
+  # ✅ Fix: Add the required default node pool
+  default_node_pool {
+    name       = var.node_group  # ✅ Fix: Refer to defined variable
+    node_count = var.node_count  # ✅ Fix: Refer to defined variable
     vm_size    = "Standard_DS2_v2"
-    mode       = "System"
   }
 }
 
@@ -37,4 +36,3 @@ resource "azurerm_kubernetes_cluster_node_pool" "core_pool" {
   mode                  = "User"
   tags                  = var.tags
 }
-

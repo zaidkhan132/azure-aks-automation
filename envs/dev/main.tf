@@ -1,5 +1,5 @@
 provider "azurerm" {
-  features {}  
+  features {}
 }
 
 terraform {
@@ -18,9 +18,9 @@ module "aks" {
   location            = var.location
   dns_prefix          = var.dns_prefix
   tags                = var.tags
-  node_group          = var.node_group
-  node_count          = var.node_count
-  node_pools          = var.node_pools
+  node_group          = "defaultpool"
+  node_count          = 1
   infra_pool_count    = var.infra_pool_count
   core_pool_count     = var.core_pool_count
 }
+

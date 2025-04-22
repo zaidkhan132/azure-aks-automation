@@ -14,7 +14,7 @@ variable "resource_group_name" {
 }
 
 variable "location" {
-  description = "Azure location for deployment"
+  description = "Azure region for deployment"
   type        = string
 }
 
@@ -29,26 +29,16 @@ variable "node_group" {
 }
 
 variable "node_count" {
-  description = "Number of nodes in the default node group"
+  description = "Number of nodes in the default node pool"
   type        = number
 }
 
-variable "node_pools" {
-  description = "Additional node pools configuration"
-  type = map(object({
-    vm_size    = string
-    node_count = number
-    mode       = string
-    tags       = map(string)
-  }))
-}
-
 variable "infra_pool_count" {
-  description = "Number of nodes for the infra pool"
+  description = "Number of nodes for infrastructure pool"
   type        = number
 }
 
 variable "core_pool_count" {
-  description = "Number of nodes for the core pool"
+  description = "Number of nodes for core workloads"
   type        = number
 }

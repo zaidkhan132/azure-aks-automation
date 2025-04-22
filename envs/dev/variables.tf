@@ -23,26 +23,6 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "node_group" {
-  description = "The name of the default node group"
-  type        = string
-}
-
-variable "node_count" {
-  description = "The number of nodes in the default node group"
-  type        = number
-}
-
-variable "node_pools" {
-  description = "Additional node pools configuration"
-  type = map(object({
-    vm_size    = string
-    node_count = number
-    mode       = string
-    tags       = map(string)
-  }))
-}
-
 variable "infra_pool_count" {
   description = "Number of nodes for the infra pool"
   type        = number
